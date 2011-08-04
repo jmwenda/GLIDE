@@ -16,5 +16,6 @@ def index(request):
 	return render_to_response("index.html",{"glides": glides})
 def detail(request,glide_id):
 	glide = get_object_or_404(GLIDE, pk=glide_id)
-	return render_to_response("detail.html",{"glide": glide})
+	#return render_to_response("detail.html",{"glide": glide})
+        return render_to_response("ward.html", { 'glide': glide })
 

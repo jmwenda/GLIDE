@@ -1,0 +1,30 @@
+<html>
+  <head>
+ <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+        var map, base_layer, kml;
+        var ms_url = "http://localhost/cgi-bin/mapserv?map=/home/user/wms/cape.map&"
+        function init(){
+            map = new OpenLayers.Map('map');
+            base_layer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+               "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
+            var wkt_f = new OpenLayers.Format.WKT();
+            var glide = wkt_f.read('{{ glide.polygeom.wkt }}');
+
+            map.addLayers([base_layer]);
+            
+            map.addControl(new OpenLayers.Control.LayerSwitcher());
+            map.zoomToExtent(glide.geometry.getBounds());
+            //map.setCenter(new OpenLayers.LonLat(18.45,-34),7); 
+            }
+    </script>
+  </head>
+  <body onload="init()">
+    <br>
+<tr><td>{{ glide.glidenumber }}</td></tr>
+<tr><td>{{ glide.event }}</td></tr>
+<tr><td>{{ glide.country }}</td></tr>
+<tr><td>{{ glide.comment }}</td></tr>
+    <div id="map"></div>
+  </body>
+</html>
