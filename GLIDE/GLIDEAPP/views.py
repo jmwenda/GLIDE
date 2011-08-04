@@ -14,4 +14,7 @@ def index(request):
         except EmptyPage:
                 glides = paginator.page(paginator.num_pages)
 	return render_to_response("index.html",{"glides": glides})
+def detail(request,glide_id):
+        
+	return render to response("detail.html",{"glide": glide})
 
