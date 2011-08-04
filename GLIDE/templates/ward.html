@@ -8,10 +8,13 @@
             map = new OpenLayers.Map('map');
             base_layer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
                "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
+
             var wkt_f = new OpenLayers.Format.WKT();
             var glide = wkt_f.read('{{ glide.polygeom.wkt }}');
+            vectors = new OpenLayers.Layer.Vector("GLIDE Detail Layer");
+            vectors.addFeatures(glide);
 
-            map.addLayers([base_layer]);
+            map.addLayers([base_layer,vectors]);
             
             map.addControl(new OpenLayers.Control.LayerSwitcher());
             map.zoomToExtent(glide.geometry.getBounds());
