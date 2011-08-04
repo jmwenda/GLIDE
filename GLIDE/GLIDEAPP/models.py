@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.gis.db import models
 
 # Create your models here.
 class event(models.Model):
@@ -10,4 +11,7 @@ class GLIDE(models.Model):
 	event = models.ForeignKey(event,null=False)
         country = models.ForeignKey(country,null=False)
         comment = models.TextField("Comment",null=False)
+        #we now add the GIS juice over here
+        polygeom = models.MultiPolygonField()
+        objects = models.GeoManager()
         
