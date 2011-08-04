@@ -15,6 +15,6 @@ def index(request):
                 glides = paginator.page(paginator.num_pages)
 	return render_to_response("index.html",{"glides": glides})
 def detail(request,glide_id):
-        
-	return render to response("detail.html",{"glide": glide})
+	glide = get_object_or_404(GLIDE, pk=glide_id)
+	return render_to_response("detail.html",{"glide": glide})
 
