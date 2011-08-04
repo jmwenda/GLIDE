@@ -1,0 +1,20 @@
+{% if glides %}
+{% for glide in glides.object_list %}
+<tr><td><a href="{{glide.id}}">{{ glide.glidenumber }}</a></td><td>{{ glide.event}}</td><td>{{ glide.country}}</td><td>{{ glide.comment}}</td></tr>
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if glides.has_previous %}
+            <a href="?page={{ glides.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ glides.number }} of {{ glides.paginator.num_pages }}.
+        </span>
+
+        {% if jobs.has_next %}
+            <a href="?page={{ glides.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endif %}
