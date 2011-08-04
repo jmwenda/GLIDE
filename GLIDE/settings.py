@@ -109,6 +109,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'GLIDEAPP',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
