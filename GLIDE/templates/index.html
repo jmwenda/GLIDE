@@ -1,7 +1,10 @@
 {% if glides %}
+<table>
+<tr><td>GLIDE NUMBER</td><td>Event</td><td>Country</td><td>Comment</td></tr><br>
 {% for glide in glides.object_list %}
-<tr><td><a href="{{glide.id}}">{{ glide.glidenumber }}</a></td><td>{{ glide.event}}</td><td>{{ glide.country}}</td><td>{{ glide.comment}}</td></tr>
+<tr><td style="padding-right:20px"><a href="{{glide.id}}">{{ glide.glidenumber }}</a></td><td style="padding-right:20px">{{ glide.event}}</td><td style="padding-right:20px">{{ glide.country}}</td><td style="padding-right:20px">{{ glide.comment}}</td></tr>
 {% endfor %}
+</table>
 <div class="pagination">
     <span class="step-links">
         {% if glides.has_previous %}
@@ -18,3 +21,4 @@
     </span>
 </div>
 {% endif %}
+
